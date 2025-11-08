@@ -426,21 +426,107 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 20px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo {
+                gap: 10px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .cta-nav {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 20px 0;
+            }
+
             .hero-content h1 {
-                font-size: 42px;
+                font-size: 36px;
+                margin-bottom: 15px;
             }
 
             .hero-subtitle {
-                font-size: 22px;
+                font-size: 18px;
+                margin-bottom: 20px;
             }
 
             .hero-description {
-                font-size: 17px;
+                font-size: 16px;
+                margin-bottom: 30px;
+                padding: 0 10px;
             }
 
             .passions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 0 10px;
+            }
+
+            .passion-item {
+                padding: 20px 15px;
+            }
+
+            .passion-icon {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .passion-name {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .section-subtitle {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+
+            .interests-section {
+                padding: 40px 0;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .interest-card {
+                padding: 25px 20px;
+            }
+
+            .interest-icon {
+                font-size: 40px;
+            }
+
+            .interest-title {
+                font-size: 20px;
+            }
+
+            .interest-text {
+                font-size: 14px;
             }
 
             .timeline::before {
@@ -449,9 +535,9 @@
 
             .timeline-item,
             .timeline-item:nth-child(even) {
-                width: 100%;
+                width: calc(100% - 50px);
                 margin-left: 50px;
-                padding-left: 20px;
+                margin-bottom: 30px;
             }
 
             .timeline-item:nth-child(odd) .timeline-dot,
@@ -459,12 +545,63 @@
                 left: -39px;
             }
 
-            .section-title {
-                font-size: 32px;
+            .timeline-content {
+                padding: 20px;
+            }
+
+            .timeline-title {
+                font-size: 18px;
+            }
+
+            .timeline-company {
+                font-size: 15px;
+            }
+
+            .timeline-duration {
+                font-size: 12px;
+            }
+
+            .timeline-description {
+                font-size: 13px;
+            }
+
+            .contact-section {
+                padding: 60px 0;
             }
 
             .contact-box {
-                padding: 35px 25px;
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+
+            .contact-icon-large {
+                font-size: 48px;
+            }
+
+            .contact-title {
+                font-size: 26px;
+            }
+
+            .contact-text {
+                font-size: 15px;
+                margin-bottom: 25px;
+            }
+
+            .btn-contact {
+                padding: 15px 35px;
+                font-size: 16px;
+            }
+
+            footer {
+                padding: 25px 10px;
+            }
+
+            .footer-info {
+                font-size: 14px;
+            }
+
+            .footer-location {
+                font-size: 13px;
             }
         }
     </style>
@@ -472,19 +609,16 @@
 <body>
     <div class="video-background">
         <video autoplay muted loop playsinline>
-            <source src="https://www.pexels.com/download/video/6811950/" type="video/mp4">
-            <source src="https://www.pexels.com/download/video/6811950/" type="video/mp4">
+            <source src="bg.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="container">
         <nav>
             <div class="logo">
-    <div class="logo-icon">
-        <img src="./logo.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-    </div>
-    <span class="logo-text">Abinash Sedhai</span>
-</div>
+                <div class="logo-icon">🏔️</div>
+                <span class="logo-text">Abinash Sedhai</span>
+            </div>
             <a href="#contact" class="cta-nav">Get In Touch</a>
         </nav>
 
@@ -520,22 +654,6 @@
                     <div class="passion-item">
                         <div class="passion-icon">🥊</div>
                         <div class="passion-name">UFC Fan</div>
-                    </div>
-                                        <div class="passion-item">
-                        <div class="passion-icon">🏋️</div>
-                        <div class="passion-name">Gym/Fitness Training</div>
-                    </div>
-                                        <div class="passion-item">
-                        <div class="passion-icon">📍</div>
-                        <div class="passion-name">Hidden Gems Discovery</div>
-                    </div>
-                                        <div class="passion-item">
-                        <div class="passion-icon">🏊</div>
-                        <div class="passion-name">Swimming (lakes/rivers)</div>
-                    </div>
-                                        <div class="passion-item">
-                        <div class="passion-icon">🎥</div>
-                        <div class="passion-name">Vlogging</div>
                     </div>
                 </div>
             </div>
@@ -602,7 +720,7 @@
                 <div class="contact-icon-large">✉️</div>
                 <h2 class="contact-title">Let's Connect</h2>
                 <p class="contact-text">Whether you want to talk about outdoor adventures, hospitality opportunities, or just share trail recommendations - I'd love to hear from you!</p>
-                <a href="mailto:abinashsedhai111@gmail.com" class="btn-contact">Send Me an Email</a>
+                <a href="mailto:your.email@example.com" class="btn-contact">Send Me an Email</a>
             </div>
         </section>
     </div>
