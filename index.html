@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abinash Sedhai - Portfolio</title>
+    <title>Abinash Sedhai - Nature Enthusiast & Hospitality Professional</title>
     <style>
         * {
             margin: 0;
@@ -13,35 +13,35 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        .particles {
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float 20s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .container {
@@ -57,56 +57,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: slideDown 0.8s ease;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
             animation: fadeIn 1s ease;
         }
 
@@ -115,123 +65,56 @@
             to { opacity: 1; }
         }
 
-        .hero-content {
-            flex: 1;
-            animation: slideRight 1s ease;
-        }
-
-        @keyframes slideRight {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .hero-content h1 {
-            font-size: 56px;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-        }
-
-        .hero-content h2 {
-            font-size: 28px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .cta-buttons {
+        .logo {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
         }
 
-        .btn {
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            animation: float-image 3s ease-in-out infinite;
-        }
-
-        @keyframes float-image {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-image .avatar {
-            width: 350px;
-            height: 350px;
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 120px;
+            font-size: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .cta-nav {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            margin-bottom: 50px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            animation: fadeIn 1s ease;
-        }
-
-        .experience-card, .education-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            text-decoration: none;
+            font-weight: 600;
             transition: all 0.3s ease;
-            animation: slideUp 0.8s ease;
+        }
+
+        .cta-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: slideUp 1.2s ease;
         }
 
         @keyframes slideUp {
@@ -239,356 +122,515 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        .experience-card:hover, .education-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        .hero-content h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.7);
+            font-weight: 700;
         }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
+        .hero-subtitle {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
 
-        .card-title {
-            font-size: 24px;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .card-company {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .card-duration {
-            color: #888;
-            font-size: 14px;
-        }
-
-        .card-description {
-            color: #666;
+        .hero-description {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
             line-height: 1.6;
-            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
         }
 
-        .skills-grid {
+        .passions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            max-width: 900px;
+            margin: 0 auto 50px;
         }
 
-        .skill-item {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
+        .passion-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            animation: scaleIn 0.6s ease;
+            animation: scaleIn 0.6s ease backwards;
         }
+
+        .passion-item:nth-child(1) { animation-delay: 0.1s; }
+        .passion-item:nth-child(2) { animation-delay: 0.2s; }
+        .passion-item:nth-child(3) { animation-delay: 0.3s; }
+        .passion-item:nth-child(4) { animation-delay: 0.4s; }
+        .passion-item:nth-child(5) { animation-delay: 0.5s; }
+        .passion-item:nth-child(6) { animation-delay: 0.6s; }
 
         @keyframes scaleIn {
             from { transform: scale(0.8); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
-        .skill-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        .passion-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
-        .skill-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #667eea;
+        .passion-icon {
+            font-size: 36px;
             margin-bottom: 10px;
         }
 
-        .skill-level {
-            height: 8px;
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 10px;
-            animation: fillBar 1.5s ease;
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-
-        .organization-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .organization-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-        }
-
-        .contact-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .contact-label {
+        .passion-name {
+            font-size: 16px;
             font-weight: 600;
-            color: #667eea;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 45%;
+            animation: slideRight 0.8s ease;
+        }
+
+        @keyframes slideRight {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            animation: slideLeft 0.8s ease;
+        }
+
+        @keyframes slideLeft {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            top: 20px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.8);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -58px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -58px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-company {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 5px;
         }
 
-        .contact-value {
-            color: #666;
+        .timeline-duration {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .interests-section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 60px 0;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .interest-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .interest-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .interest-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .interest-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-icon-large {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .contact-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .btn-contact {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-contact:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
             padding: 30px 0;
             text-align: center;
-            color: white;
             margin-top: 50px;
         }
 
+        .footer-info {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .footer-location {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
             .hero-content h1 {
-                font-size: 36px;
+                font-size: 42px;
             }
 
-            .hero-content h2 {
+            .hero-subtitle {
                 font-size: 22px;
             }
 
-            .cta-buttons {
-                justify-content: center;
-                flex-wrap: wrap;
+            .hero-description {
+                font-size: 17px;
             }
 
-            .hero-image .avatar {
-                width: 250px;
-                height: 250px;
-                font-size: 80px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
+            .passions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
                 gap: 15px;
-                justify-content: center;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 50px;
+                padding-left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -39px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .contact-box {
+                padding: 35px 25px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="/Users/prasiddhathapaliya/Downloads/Clients/Mr. Abinash/bg.mp4" type="video/mp4">
+            <source src="/Users/prasiddhathapaliya/Downloads/Clients/Mr. Abinash/bg.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div class="container">
         <nav>
-            <div class="logo">AS</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="logo">
+    <div class="logo-icon">
+        <img src="/Users/prasiddhathapaliya/Downloads/Clients/Mr. Abinash/logo.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+    </div>
+    <span class="logo-text">Abinash Sedhai</span>
+</div>
+            <a href="#contact" class="cta-nav">Get In Touch</a>
         </nav>
 
         <div class="hero">
             <div class="hero-content">
-                <h1>Abinash Sedhai</h1>
-                <h2>Assistant Supervisor | Customer Service Expert</h2>
-                <p>Dedicated hospitality professional with expertise in kitchen operations and customer service. Specializing in hygiene management, team coordination, and delivering exceptional guest experiences.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#experience" class="btn btn-secondary">View Experience</a>
+                <h1>Adventure Awaits</h1>
+                <p class="hero-subtitle">Nature Enthusiast | Outdoor Explorer | Hospitality Professional</p>
+                <p class="hero-description">
+                    Living life in the great outdoors of Ontario. When I'm not exploring trails or casting lines, I'm bringing that same passion and dedication to hospitality management.
+                </p>
+                
+                <div class="passions-grid">
+                    <div class="passion-item">
+                        <div class="passion-icon">🥾</div>
+                        <div class="passion-name">Trekking</div>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">📸</div>
+                        <div class="passion-name">Photography</div>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">⛺</div>
+                        <div class="passion-name">Camping</div>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">🎣</div>
+                        <div class="passion-name">Fishing</div>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">🚴</div>
+                        <div class="passion-name">Biking</div>
+                    </div>
+                    <div class="passion-item">
+                        <div class="passion-icon">🥊</div>
+                        <div class="passion-name">UFC Fan</div>
+                    </div>
+                                        <div class="passion-item">
+                        <div class="passion-icon">🏋️</div>
+                        <div class="passion-name">Gym/Fitness Training</div>
+                    </div>
+                                        <div class="passion-item">
+                        <div class="passion-icon">📍</div>
+                        <div class="passion-name">Hidden Gems Discovery</div>
+                    </div>
+                                        <div class="passion-item">
+                        <div class="passion-icon">🏊</div>
+                        <div class="passion-name">Swimming (lakes/rivers)</div>
+                    </div>
+                                        <div class="passion-item">
+                        <div class="passion-icon">🎥</div>
+                        <div class="passion-name">Vlogging</div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="avatar">AS</div>
             </div>
         </div>
 
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="experience-card">
-                <p class="card-description">Assistant Supervisor at Regal Airport Hotel with nearly 5 years of experience managing kitchen hygiene, supplies, and customer service operations. Proven track record in maintaining high standards, coordinating teams, and ensuring seamless daily operations. Strong communicator with exceptional organizational skills and adaptability in fast-paced hospitality environments.</p>
+        <section class="interests-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Beyond the Office</h2>
+                    <p class="section-subtitle">What fuels my spirit and keeps me grounded</p>
+                </div>
+                
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">🌲</div>
+                        <h3 class="interest-title">Nature Explorer</h3>
+                        <p class="interest-text">Ontario's trails are my sanctuary. Every weekend is a new adventure, discovering hidden paths and breathtaking vistas.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">📷</div>
+                        <h3 class="interest-title">Wildlife Photography</h3>
+                        <p class="interest-text">Capturing the raw beauty of nature through my lens. Every shot tells a story of the wilderness I call home.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🥊</div>
+                        <h3 class="interest-title">Combat Sports</h3>
+                        <p class="interest-text">Huge UFC fan and Conor McGregor enthusiast. The dedication and discipline in the octagon inspires my everyday life.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <div class="experience-card">
-                <div class="card-header">
-                    <div>
-                        <h3 class="card-title">Assistant Supervisor</h3>
-                        <p class="card-company">Regal Airport Hotel Pvt. Ltd</p>
-                        <p class="card-duration">Jan 2021 - Present • 4 years 11 months</p>
-                    </div>
-                </div>
-                <p class="card-description">
-                    Leading kitchen operations with focus on hygiene standards and supply management. Key responsibilities include sanitizing food preparation areas, managing cooking equipment storage, overseeing food deliveries, and organizing inventory. Ensure compliance with health standards while maintaining efficient workflows and providing excellent customer service.
-                </p>
+            <div class="section-header">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">Bringing outdoor resilience to hospitality excellence</p>
             </div>
 
-            <div class="experience-card">
-                <div class="card-header">
-                    <div>
-                        <h3 class="card-title">Sales Associate</h3>
-                        <p class="card-company">Bhatbhateni Supermarket</p>
-                        <p class="card-duration">Jun 2012 - Mar 2014 • 1 year 10 months</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Guest Environment Expert</h3>
+                        <p class="timeline-company">Marriott</p>
+                        <p class="timeline-duration">2024 - Present</p>
+                        <p class="timeline-description">Creating exceptional guest experiences with the same attention to detail and passion I bring to exploring nature's finest moments.</p>
                     </div>
                 </div>
-                <p class="card-description">
-                    Delivered exceptional customer service in a high-volume retail environment. Applied strong communication and basic math skills to assist customers, process transactions, and maintain store presentation standards.
-                </p>
-            </div>
-        </section>
 
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-card">
-                <h3 class="card-title">Higher Secondary Level, Management</h3>
-                <p class="card-company">Viswa Niketan Secondary School</p>
-                <p class="card-duration">Feb 2017 - Feb 2019 • Grade: 2.64</p>
-            </div>
-
-            <div class="education-card">
-                <h3 class="card-title">High School Diploma</h3>
-                <p class="card-company">Munal Academy</p>
-                <p class="card-duration">Jan 2013 - Jan 2017 • Grade: 3.20</p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2 class="section-title">Core Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-name">Hotel Management</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Customer Service</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Organization Skills</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Sales Processes</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Communication</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Team Leadership</div>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%"></div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Assistant Supervisor</h3>
+                        <p class="timeline-company">Regal Airport Hotel</p>
+                        <p class="timeline-duration">2021 - 2024</p>
+                        <p class="timeline-description">Leading kitchen operations, hygiene management, and team coordination with the same precision I bring to planning outdoor expeditions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="community">
-            <h2 class="section-title">Community Involvement</h2>
-            <div class="organization-card">
-                <h3 class="card-title">Yuva Shakti Community Development Society</h3>
-                <p class="card-company">Member • Mar 2022 - Present</p>
-                <p class="card-description" style="margin-top: 15px;">
-                    Active member of a community organization dedicated to social work and local development. Participate in collaborative initiatives including food drives, mentorship programs, and community support services to create positive neighborhood impact.
-                </p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <div class="contact-label">Location</div>
-                    <div class="contact-value">Scarborough, Ontario, Canada</div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">💼</span>
-                    <div class="contact-label">Open To</div>
-                    <div class="contact-value">Assistant Supervisor, Sales Associate, Housekeeper roles</div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">🌐</span>
-                    <div class="contact-label">Languages</div>
-                    <div class="contact-value">English, Hindi (Professional)</div>
-                </div>
+        <section id="contact" class="contact-section">
+            <div class="contact-box">
+                <div class="contact-icon-large">✉️</div>
+                <h2 class="contact-title">Let's Connect</h2>
+                <p class="contact-text">Whether you want to talk about outdoor adventures, hospitality opportunities, or just share trail recommendations - I'd love to hear from you!</p>
+                <a href="mailto:abinashsedhai111@gmail.com" class="btn-contact">Send Me an Email</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Abinash Sedhai. All rights reserved.</p>
+        <p class="footer-info">Abinash Sedhai | Nature Enthusiast & Hospitality Professional</p>
+        <p class="footer-location">📍 Scarborough, Ontario, Canada</p>
     </footer>
 
     <script>
-        // Create floating particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 20 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-            particlesContainer.appendChild(particle);
-        }
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) translateX(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .interest-card').forEach(el => {
+            observer.observe(el);
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -599,28 +641,6 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.experience-card, .education-card, .skill-item, .organization-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
